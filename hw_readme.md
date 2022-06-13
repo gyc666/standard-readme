@@ -57,8 +57,6 @@ _AL JU NI ED _C RE S C ENT
 _AL JU NI ED _H US SE IN
 ```
 
-
-
 You need put hotword_fst.py in
 ```sh
 # $espnet_folder/espnet/nets/scorers/
@@ -69,6 +67,25 @@ And put asr_inference_fst.py in
 # $espnet_folder/espnet2/bin/
 ```
 
+If you want use keyword prefix tree search in BeamSearch, You should modify espnet/egs2/TEMPLATE/asr1/asr.sh in column 1244~1245 as following and should specify the hwfst_weight:
+
+```sh
+# 2. Submit decoding jobs
+log "Decoding started... log: '${_logdir}/asr_inference.*.log'"
+# shellcheck disable=SC2086
+echo "##cmd##" ${_cmd}
+${_cmd}  JOB=1:"${_nj}" "${_logdir}"/asr_inference.JOB.log \
+         ${python} -m espnet2.bin.asr_inference_fst \
+             --batch_size ${batch_size} \
+             --data_path_and_name_and_type "${_data}/${_scp},speech,${_type}" \
+             --key_file "${_logdir}"/keys.JOB.scp \
+             --asr_train_config "${asr_exp}"/config.yaml \
+             --asr_model_file "${asr_exp}"/"${inference_asr_model}" \
+             --output_dir "${_logdir}"/output.JOB \
+             --hwfst_weight $hwfst_weight \
+             --hw_list_path "data/hw_piece" \
+             ${_opts} ${inference_args}
+```
 
 
 ## Example
@@ -77,23 +94,19 @@ To see how the specification has been applied, see the [example-readmes](example
 
 ## Related Efforts
 
-- [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
-- [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
+
 
 ## Maintainers
 
-[@RichardLitt](https://github.com/RichardLitt).
+
 
 ## Contributing
 
-Feel free to dive in! [Open an issue](https://github.com/RichardLitt/standard-readme/issues/new) or submit PRs.
 
-Standard Readme follows the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) Code of Conduct.
 
 ### Contributors
 
-This project exists thanks to all the people who contribute. 
-<a href="https://github.com/RichardLitt/standard-readme/graphs/contributors"><img src="https://opencollective.com/standard-readme/contributors.svg?width=890&button=false" /></a>
+
 
 
 ## License
