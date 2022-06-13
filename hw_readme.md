@@ -32,30 +32,46 @@ You can follow this Document(https://espnet.github.io/espnet/installation.html)
 
 ## Usage
 
-This is only a documentation package. You can print out [spec.md](spec.md) to your console:
+Firstly, You should prepare a file of oov-list which like below:
 
 ```sh
-$ standard-readme-spec
-# Prints out the standard-readme spec
+ALEXANDER LAURIE JOHNSTON
+ALEXANDRA LANE
+ALEXANDRA ROAD
+ALIMAN HASSAN
+ALJUNIED AVENUE
+ALJUNIED CRESCENT
+ALJUNIED HUSSEIN
 ```
 
-### Generator
+Then You should convert this file to bpe piece:
 
-To use the generator, look at [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme). There is a global executable to run the generator in that package, aliased as `standard-readme`.
-
-## Badge
-
-If your README is compliant with Standard-Readme and you're on GitHub, it would be great if you could add the badge. This allows people to link back to this Spec, and helps adoption of the README. The badge is **not required**.
-
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-To add in Markdown format, use this code:
-
-```
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+```sh
+_A LE X _JO SE Y
+_A LE X AND ER _LA UR IE _JOHN S TON
+_A LE X AND RA _LANE
+_A LE X AND RA _ROAD
+_A LI MAN _HAS S AN
+_AL JU NI ED _AVENUE
+_AL JU NI ED _C RE S C ENT
+_AL JU NI ED _H US SE IN
 ```
 
-## Example Readmes
+
+
+You need put hotword_fst.py in
+```sh
+# $espnet_folder/espnet/nets/scorers/
+```
+
+And put asr_inference_fst.py in 
+```sh
+# $espnet_folder/espnet2/bin/
+```
+
+
+
+## Example
 
 To see how the specification has been applied, see the [example-readmes](example-readmes/).
 
