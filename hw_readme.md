@@ -10,8 +10,22 @@ This repository contains:
 ## Configure the ESPnet environment
 
 - Download Espnet
-- Install Conda
-- Create the Conda environment
+```sh
+$ git clone https://github.com/espnet/espnet.git
+```
+- Install Conda & Create the Conda environment
+```sh
+$ conda create -n espnet python=3.8
+$ conda activate espnet
+$ conda install pytorch==1.6.0 cudatoolkit=10.1 torchaudio=0.6.0 -c pytorch
+
+# GPU 3090 is available ,Perform the following configuration
+$ conda create -n espnet python=3.8
+$ conda activate espnet
+$ pip install -r requirements.txt
+$ conda install pytorch torchvision torchaudio=0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+```
+
 - Config Espnet
 
 ```sh
