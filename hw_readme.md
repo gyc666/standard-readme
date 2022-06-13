@@ -28,9 +28,7 @@ $ conda install pytorch torchvision torchaudio=0.8.0 cudatoolkit=11.1 -c pytorch
 
 - Config Espnet
 
-```sh
-$ npm install --global standard-readme-spec
-```
+You can follow this Document(https://espnet.github.io/espnet/installation.html)
 
 ## Usage
 
