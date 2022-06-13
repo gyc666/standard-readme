@@ -9,11 +9,10 @@ This repository contains:
 
 ## Configure the ESPnet environment
 
-- [Download Espnet]
-
-- [install Conda]
-- [Create the Conda environment]
-- [Config Espnet]
+- Download Espnet
+- Install Conda
+- Create the Conda environment
+- Config Espnet
 
 ```sh
 $ npm install --global standard-readme-spec
